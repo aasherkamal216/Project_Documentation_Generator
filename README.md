@@ -1,3 +1,7 @@
+# Documentation Generator
+
+This project provides a streamlined solution for analyzing Angular projects, visualizing their UI structure, and automatically generating documentation. It leverages a combination of tools, including Streamlit for the frontend, FastAPI for the backend API, and Ollama for running the models locally.
+
 # Setup
 
 Ensure Docker and Docker Compose are installed and running on your system.

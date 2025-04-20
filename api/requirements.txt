@@ -1,0 +1,8 @@
+beautifulsoup4
+fastapi
+fpdf
+matplotlib
+networkx
+python-multipart
+requests
+uvicorn

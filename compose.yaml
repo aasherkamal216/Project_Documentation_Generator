@@ -1,0 +1,44 @@
+services:
+  web:
+    build: ./api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/app
+      - uploads:/uploads
+    networks:
+      - app-network
+    depends_on:
+      - ollama
+
+  frontend:
+    build: frontend
+    ports:
+      - 8501:8501
+    volumes:
+      - ./frontend:/app
+    networks:
+      - app-network
+    depends_on:
+      - web
+
+
+  ollama:
+    build: ollama
+    ports:
+      - 11434:11434
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - app-network
+    entrypoint: ['/bin/bash', '/home/pull-llama3.sh']
+    
+networks:
+  app-network:
+    driver: bridge
+    
+volumes:
+  ollama_data:
+    driver: local
+  uploads:
+    driver: local
